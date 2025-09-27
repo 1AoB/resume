@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>你的名字 - 个人主页</title>
+  <meta name="description" content="个人主页：介绍、技能、项目与联系方式。" />
+  <style>
+    :root{
+      --bg:#0f1724; /* deep slate */
+      --card:#0b1220;
+      --muted:#9aa6b2;
+      --accent:#8b5cf6;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --text:#e6eef6;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071022);color:var(--text);}
+    .container{max-width:980px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04203c}
+    nav a{color:var(--muted);text-decoration:none;margin-left:12px}
+    nav a:hover{color:var(--text)}
+    .hero{display:grid;grid-template-columns:1fr 300px;gap:20px;margin-top:28px;align-items:center}
+    .card{background:linear-gradient(180deg,var(--card),rgba(10,14,21,0.6));padding:20px;border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted);margin-top:8px}
+    .actions{margin-top:14px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--muted);font-size:13px}
+    .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+    .project{padding:14px;border-radius:10px;background:var(--glass-2);border:1px solid rgba(255,255,255,0.02)}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+    form .row{display:flex;gap:8px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+    textarea{min-height:110px}
+    /* responsive */
+    @media (max-width:760px){.hero{grid-template-columns:1fr}.avatar{width:56px;height:56px}.brand .title{display:none}}
+    /* small interactive styles */
+    .theme-toggle{cursor:pointer;padding:6px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar">你</div>
+        <div>
+          <div style="font-weight:700">你的名字</div>
+          <div style="font-size:13px;color:var(--muted)">软件工程师 · 嵌入式 · C++ / Qt</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">关于</a>
+        <a href="#projects">项目</a>
+        <a href="#contact">联系</a>
+        <button class="theme-toggle" id="toggleTheme" title="切换明/暗主题">🌙</button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>你好，我是你的名字 👋</h1>
+        <p class="lead">我是一名前端与上位机软件工程师，主要使用 C++、Qt 和现代 Web 技术来构建稳定的应用与工具。喜欢把复杂问题工程化并简化为可维护的代码。</p>
+        <div class="skills">
+          <div class="chip">C++</div>
+          <div class="chip">Qt</div>
+          <div class="chip">Python</div>
+          <div class="chip">HTML / CSS / JS</div>
+          <div class="chip">Git</div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#projects">查看项目</a>
+          <a class="btn ghost" href="mailto:your.email@example.com">发送邮件</a>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3>状态</h3>
+        <p style="color:var(--muted);margin-top:6px">开放远程合同/兼职 · 可在深圳或远程工作</p>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:12px 0" />
+        <h4 style="margin:6px 0">联系方式</h4>
+        <p style="margin:6px 0;color:var(--muted)">邮箱: your.email@example.com<br/>电话: +86 138 0000 0000</p>
+      </aside>
+    </section>
+
+    <section id="about" style="margin-top:18px">
+      <div class="card">
+        <h2>关于我</h2>
+        <p style="color:var(--muted)">专注于上位机软件与嵌入式连接。熟悉 Qt UI 构建、串口/网口通讯、以及测序/仪器类软件的数据流设计。平时喜欢阅读开源代码并参与小型工具的开发。</p>
+      </div>
+
+      <div id="projects" style="margin-top:12px">
+        <h2>项目</h2>
+        <div class="projects">
+          <div class="project">
+            <strong>项目 A（上位机）</strong>
+            <p style="color:var(--muted);margin:8px 0">使用 Qt/C++ 实现仪器控制与数据记录，支持多台设备并发连接与日志回放。</p>
+            <a href="#" style="font-size:13px;color:var(--accent);text-decoration:none">演示/源代码</a>
+          </div>
+
+          <div class="project">
+            <strong>项目 B（数据处理）</strong>
+            <p style="color:var(--muted);margin:8px 0">Python 工具链，用于自动化处理测序输出并生成可视化报告。</p>
+          </div>
+
+          <div class="project">
+            <strong>小工具：串口助手</strong>
+            <p style="color:var(--muted);margin:8px 0">一个跨平台的串口调试工具，支持自定义协议和导出日志。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <div class="card">
+        <h2>联系我</h2>
+        <form onsubmit="sendMessage(event)">
+          <div class="row">
+            <input id="name" placeholder="你的名字" required />
+            <input id="email" type="email" placeholder="你的邮箱" required />
+          </div>
+          <div style="margin-top:8px">
+            <textarea id="message" placeholder="写点什么..." required></textarea>
+          </div>
+          <div style="margin-top:10px">
+            <button class="btn" type="submit">发送（本地模拟）</button>
+          </div>
+          <p id="formStatus" style="color:var(--muted);margin-top:8px;font-size:13px"></p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="card" style="display:inline-block;padding:12px 18px">© <span id="year"></span> 你的名字 · 由 HTML 制作</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // 简单主题切换（仅修改 CSS 变量）
+    const toggle = document.getElementById('toggleTheme');
+    toggle.addEventListener('click', ()=>{
+      const dark = document.documentElement.style.getPropertyValue('--bg') === '#ffffff';
+      if(!dark){
+        // 切换到明亮主题
+        document.documentElement.style.setProperty('--bg','#ffffff');
+        document.documentElement.style.setProperty('--card','#f6f8fa');
+        document.documentElement.style.setProperty('--text','#0b1220');
+        document.documentElement.style.setProperty('--muted','#475569');
+        document.documentElement.style.setProperty('--glass','rgba(0,0,0,0.04)');
+        toggle.textContent = '☀️';
+      }else{
+        // 切换回暗色（默认）
+        document.documentElement.style.setProperty('--bg','#0f1724');
+        document.documentElement.style.setProperty('--card','#0b1220');
+        document.documentElement.style.setProperty('--text','#e6eef6');
+        document.documentElement.style.setProperty('--muted','#9aa6b2');
+        document.documentElement.style.setProperty('--glass','rgba(255,255,255,0.04)');
+        toggle.textContent = '🌙';
+      }
+    });
+
+    // 模拟发送（不会真正发送）
+    function sendMessage(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const msg = document.getElementById('message').value;
+      const status = document.getElementById('formStatus');
+      status.textContent = `已准备好发送：${name} <${email}> — 内容长度 ${msg.length} 字`;
+      // 提示用户可以把表单通过 mailto 或后端 API 发送
+    }
+  </script>
+</body>
+</html>
